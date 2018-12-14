@@ -1,0 +1,58 @@
+//Some is based on the PID control loop found in Github code SoftwarePIDController.java//
+public class PIDControllerLoop {
+	
+//Setting up variables
+	protected double P; //P
+	protected double totalError = 0; //I
+  protected double lastError= 0; //For D Calc
+  protected double deltaLastError; //D
+	protected String input;
+	protected double KP, KI, KD; //K values for each part
+	protected double targetX = 319; //Setpoint for X I may have mixed these up...
+	protected double targetY = 239; //Setpoint for Y
+	
+//Inputs for the update
+	protected String cords;
+  
+//Constructor
+	public PIDControllerLoop(String input) {
+		this.input = input;
+	}
+  
+//Method that PIDController constantly runs	
+	public boolean PIDControllerLoopUpdate(String cords) { //It'll return false until it's done
+  
+		this.cords = cords;
+		x = Integer.parseInt(cords.substring(0, 3));
+		y = Integer.parseInt(cords.substring(3, 6));
+    
+    //Checks to see whether the PID is for turning or moving
+    if(input == "X"){
+		  if(x < targetX) { //Turns left
+			  P = KP*(targetX-x); //Proportional Control
+		  	KI = .15; //Tune this
+			  totalError += P;
+		  	deltaLastError = P-lastError;
+			
+		  }
+		
+		  else { //Turns right
+			
+	  	}
+		}
+    
+    //Check for Y input
+    if (input == "Y"){
+	  	if(y < targetY) { //Move up
+		  	
+		  }
+		
+		   else { //Move back
+			
+		  }
+    }
+    else System.out.println("Put a valide response in derp");
+		if (x == targetX && y == targetY) return true;
+		else return false;
+	}
+}
