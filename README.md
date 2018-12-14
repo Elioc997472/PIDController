@@ -8,4 +8,4 @@ TODO:
   Tune K values
   Actually test code
   Debug, and loop again to 8.
-  Ask Stadudacher for the basics on vision just to piss hiim off.
+  Ask Stadudacher for the basics on vision just to piss him off.
